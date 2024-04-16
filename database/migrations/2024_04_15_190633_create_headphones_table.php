@@ -16,10 +16,12 @@ return new class extends Migration
             $table->string('name');
             $table->unsignedInteger('price');
             $table->string('type');
-            $table->string('type_connect');
+            $table->string('type_connect')->default('wireless');
             $table->string('color');
             $table->string('company');
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 
