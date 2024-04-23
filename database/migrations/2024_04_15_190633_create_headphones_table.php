@@ -19,9 +19,15 @@ return new class extends Migration
             $table->string('type_connect')->default('wireless');
             $table->string('color');
             $table->string('company');
+            $table->string('img_url');
             $table->timestamps();
 
             $table->softDeletes();
+
+            $table->unsignedBigInteger('category_id')->nullable();
+
+            $table->index('category_id', 'headphone_category_idx');
+            $table->foreign('category_id', 'headphone_category_fk')->on('categories')->references('id');
         });
     }
 
