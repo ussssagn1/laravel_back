@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('headphones', function (Blueprint $table) {
-            $table->string('img_url')->nullable()->after('color');
+        Schema::create('tags', function (Blueprint $table) {
+            $table->id();
+            $table->string('types');
+            $table->timestamps();
         });
     }
 
@@ -21,8 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('headphones', function (Blueprint $table) {
-            $table->dropColumn('img_url');
-        });
+        Schema::dropIfExists('tags');
     }
 };

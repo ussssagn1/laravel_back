@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Headphone;
 use Illuminate\Http\Request;
 
 class HeadphoneController extends Controller {
     public function index() {
-        $headphones = Headphone::all();
-        return view('headphones.index', compact('headphones'));
+
+        $headphone = Headphone::find(1);
+        dd($headphone->tags);
+
+//        return view('headphones.index', compact('headphones'));
     }
 
     public function create() {

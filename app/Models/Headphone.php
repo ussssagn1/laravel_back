@@ -13,4 +13,11 @@ class Headphone extends Model
 
     protected $table = 'headphones';
     protected $guarded = [];
+
+    public function category() {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
+    public function tags() {
+        return $this->belongsToMany(Tag::class, 'headphone_tags', 'headphone_id', 'tag_id');
+    }
 }

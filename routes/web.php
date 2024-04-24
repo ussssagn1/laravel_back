@@ -2,10 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{HeadphoneController, MainController};
+
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/headphones/createdAll', [HeadphoneController::class, 'createAll']);
 
 
 Route::get('/headphones', [HeadphoneController::class, 'index'])->name('headphones.index');
