@@ -9,14 +9,13 @@ use Illuminate\Http\Request;
 class HeadphoneController extends Controller {
     public function index() {
 
-        $headphone = Headphone::find(1);
-        dd($headphone->tags);
-
-//        return view('headphones.index', compact('headphones'));
+        $headphones = Headphone::all();
+         return view('headphones.index', compact('headphones'));
     }
 
     public function create() {
-        return view('headphones.create');
+        $categories  = Category::all();
+        return view('headphones.create', compact('categories'));
     }
 
     public function store() {
@@ -28,8 +27,8 @@ class HeadphoneController extends Controller {
             'company' => 'required',
             'color' => 'required',
             'img_url' => 'required',
+            'category_id' => 'required',
         ]);
-
         Headphone::create($data);
         return redirect()->route('headphones.index');
     }

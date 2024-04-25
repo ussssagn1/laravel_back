@@ -30,6 +30,15 @@
             <label for="exampleInputEmail1" class="form-label">img/url</label>
             <input type="text" name="img_url" class="form-control" id="exampleInputName" aria-describedby="emailHelp">
         </div>
+        <div class="form-group mb-3">
+            <label for="category">Category</label>
+            <select class="form-control" id="category" name="category_id">
+                @foreach($categories as $category)
+                    <option value="{{$category->id}}">{{ $category->name }}</option>
+                @endforeach
+
+            </select>
+        </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 @endsection
